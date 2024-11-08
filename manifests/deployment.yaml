@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: lyna-sovann0964-nginx-timeout-deployment
+  labels:
+    app: lyna-sovann0964-nginx-timeout
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: lyna-sovann0964-nginx-timeout
+  template:
+    metadata:
+      labels:
+        app: lyna-sovann0964-nginx-timeout
+    spec:
+      containers:
+        - name: lyna-sovann0964-nginx-timeout-container
+          image: pipejet/lyna-sovann0964-nginx-timeout:0
+          ports:
+            - containerPort: 3000
