@@ -1,0 +1,13 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: lyna-sovann0964-nginx-timeout-certificate
+  namespace: lyna-sovann0964-nginx-timeout
+spec:
+  secretName: lyna-sovann0964-nginx-timeout-secret-tls
+  commonName: lyna-sovann0964-nginx-timeout.assessify.org
+  dnsNames:
+  - lyna-sovann0964-nginx-timeout.assessify.org
+  issuerRef:
+    name: letsencrypt-prod
+    kind: ClusterIssuer
