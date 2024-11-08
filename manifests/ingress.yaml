@@ -1,0 +1,26 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: lyna-sovann0964-nginx-timeout-https-ingress
+  namespace: lyna-sovann0964-nginx-timeout
+  annotations:
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"
+    nginx.ingress.kubernetes.io/use-regex: "true"
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  ingressClassName: nginx
+  tls:
+    - hosts:
+        - lyna-sovann0964-nginx-timeout.assessify.org
+      secretName: lyna-sovann0964-nginx-timeout-secret-tls
+  rules:
+    - host: lyna-sovann0964-nginx-timeout.assessify.org
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: lyna-sovann0964-nginx-timeout-service
+                port:
+                  number: 8081
