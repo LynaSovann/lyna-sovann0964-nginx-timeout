@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
         - name: lyna-sovann0964-nginx-timeout-container
-          image: pipejet/lyna-sovann0964-nginx-timeout:0
+          image: pipejet/lyna-sovann0964-nginx-timeout:1
           ports:
             - containerPort: 3000
